@@ -36,6 +36,9 @@ local SpectrumMeter    = require("jive.vis.SpectrumMeter")
 local debug            = require("jive.utils.debug")
 local datetime         = require("jive.utils.datetime")
 
+local RequestHttp	= require("jive.net.RequestHttp")
+local SocketHttp	= require("jive.net.SocketHttp")
+
 local appletManager    = appletManager
 
 local jiveMain               = jiveMain
@@ -613,10 +616,16 @@ function notify_playerCurrent(self, player)
 
 	self.player = player
 	self:_setVolumeSliderStyle()
-
+  
 	if not self.player then
 		return
 	end
+
+  -- create a jive.net.SocketTcp
+  log:debug("notifying Applikation: Player ", player:getName())
+  local http = SocketHttp(jnt, "127.0.0.1", 12345, "slimserver")
+  local req = RequestHttp(sink, 'GET', '/newplayer/' .. player:getName())
+  http:fetch(req)
 
 	if jiveMain:getSkinParam("NOWPLAYING_MENU") then
 		self:addNowPlayingItem()
