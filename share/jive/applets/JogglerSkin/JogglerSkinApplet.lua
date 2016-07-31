@@ -77,7 +77,7 @@ oo.class(_M, Applet)
 -- Define useful variables for this skin
 local imgpath = "applets/JogglerSkin/images/"
 local fontpath = "fonts/"
-local FONT_NAME = "FreeSans"
+local FONT_NAME = "NotoSans-Italic"
 local BOLD_PREFIX = "Bold"
 
 
@@ -219,12 +219,12 @@ end
 
 -- define a local function that makes it easier to set fonts
 local function _font(fontSize)
-	return Font:load(fontpath .. FONT_NAME .. ".ttf", 24)
+	return Font:load(fontpath .. FONT_NAME .. ".ttf", fontSize)
 end
 
 -- define a local function that makes it easier to set bold fonts
 local function _boldfont(fontSize)
-	return Font:load(fontpath .. FONT_NAME .. ".ttf", 32)
+	return Font:load(fontpath .. FONT_NAME .. BOLD_PREFIX .. ".ttf", fontSize)
 end
 
 -- defines a new style that inherrits from an existing style
@@ -651,7 +651,7 @@ function skin(self, s)
 	local CHECK_PADDING  = { 2, 0, 6, 0 }
 	local CHECKBOX_RADIO_PADDING  = { 2, 0, 0, 0 }
 
-	local MENU_ITEM_ICON_PADDING = { 0, 0, 20, 0 }
+	local MENU_ITEM_ICON_PADDING = { 0, 0, 8, 0 }
 	local MENU_PLAYLISTITEM_TEXT_PADDING = { 16, 1, 9, 1 }
 
 	local MENU_CURRENTALBUM_TEXT_PADDING = { 6, 20, 0, 10 }
@@ -2801,7 +2801,7 @@ function skin(self, s)
 		align = "left",
 		lineHeight = NP_TRACK_FONT_SIZE,
 		fg = TEXT_COLOR,
-		x = 318,
+		x = 358,
 	}
 
 	s.nowplaying = _uses(s.window, {
@@ -2880,15 +2880,15 @@ function skin(self, s)
 	
 		-- cover art
 		npartwork = {
-			w = 270,
+			w = 300,
 			position = LAYOUT_NONE,
 			x = 20,
-			y = TITLE_HEIGHT + 33,
+			y = TITLE_HEIGHT + 63,
 			align = "center",
-			h = 270,
+			h = 300,
 
 			artwork = {
-				w = 270,
+				w = 300,
 				align = "center",
 				padding = 0,
 				img = false,
@@ -2993,7 +2993,7 @@ function skin(self, s)
 		-- Progress bar
 		npprogress = {
 			position = LAYOUT_NONE,
-			x = 322,
+			x = 362,
 			y = TITLE_HEIGHT + 29 + 26 + 32 + 32 + 23 + 80,
 			padding = { 0, 11, 0, 0 },
 			order = { "elapsed", "slider", "remain" },
@@ -3044,7 +3044,7 @@ function skin(self, s)
 		npprogressNB = {
 			order = { "elapsed" },
 			position = LAYOUT_NONE,
-			x = 322,
+			x = 362,
 			y = TITLE_HEIGHT + 29 + 26 + 32 + 32 + 23 + 84,
 			elapsed = {
 				w = WH_FILL,
@@ -3137,14 +3137,14 @@ function skin(self, s)
 		npartistgroup    = { hidden = 1 },
 		npalbumgroup     = { hidden = 1 },
 		npartwork = {
-			w = 450,
+			w = 500,
 			position = LAYOUT_NONE,
 			x = 272,
-			y = 25,
+			y = 85,
 			align = "center",
-			h = 450,
+			h = 500,
 			artwork = {
-				w = 450,
+				w = 500,
 				align = "center",
 				padding = 0,
 				img = false,

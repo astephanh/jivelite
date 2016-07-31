@@ -1,0 +1,9 @@
+;;extensions to ignore
+*.log
+*.pyc
+*.so
+*.so.*
+*.o
+
+;; not the bin
+bin/jivelite
