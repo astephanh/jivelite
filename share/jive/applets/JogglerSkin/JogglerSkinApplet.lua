@@ -219,12 +219,12 @@ end
 
 -- define a local function that makes it easier to set fonts
 local function _font(fontSize)
-	return Font:load(fontpath .. FONT_NAME .. ".ttf", fontSize)
+	return Font:load(fontpath .. FONT_NAME .. ".ttf", 24)
 end
 
 -- define a local function that makes it easier to set bold fonts
 local function _boldfont(fontSize)
-	return Font:load(fontpath .. FONT_NAME .. BOLD_PREFIX .. ".ttf", fontSize)
+	return Font:load(fontpath .. FONT_NAME .. ".ttf", 32)
 end
 
 -- defines a new style that inherrits from an existing style
@@ -250,7 +250,7 @@ end
 -- skin
 -- The meta arranges for this to be called to skin the interface.
 function skin(self, s)
-	Framework:setVideoMode(1024, 550, 0, false)
+	Framework:setVideoMode(1024, 600, 0, false)
 --	Framework:setVideoMode(800, 480, 0, false)
 
 	local screenWidth, screenHeight = Framework:getScreenSize()
@@ -651,7 +651,7 @@ function skin(self, s)
 	local CHECK_PADDING  = { 2, 0, 6, 0 }
 	local CHECKBOX_RADIO_PADDING  = { 2, 0, 0, 0 }
 
-	local MENU_ITEM_ICON_PADDING = { 0, 0, 8, 0 }
+	local MENU_ITEM_ICON_PADDING = { 0, 0, 20, 0 }
 	local MENU_PLAYLISTITEM_TEXT_PADDING = { 16, 1, 9, 1 }
 
 	local MENU_CURRENTALBUM_TEXT_PADDING = { 6, 20, 0, 10 }
@@ -3139,8 +3139,8 @@ function skin(self, s)
 		npartwork = {
 			w = 450,
 			position = LAYOUT_NONE,
-			x = 172,
-			y = 15,
+			x = 272,
+			y = 25,
 			align = "center",
 			h = 450,
 			artwork = {
